@@ -1,0 +1,92 @@
+version: '3.7'
+
+networks:
+  test:
+    external:
+      name: dev
+services:
+  ca-org1:
+    image: hyperledger/fabric-ca:latest
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-org1
+      - FABRIC_CA_SERVER_CSR_CN=ca-org1
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=7053
+      - FABRIC_CA_SERVER_DEBUG=true
+      - GODEBUG=netdns=go
+    ports:
+      - 7053:7053
+    command: sh -c 'fabric-ca-server start -d -b ca-org1-admin:ca-org1-adminpw --port 7053'
+    volumes:
+      - ../organizations/fabric-ca/org1:/etc/hyperledger/fabric-ca-server
+    container_name: ca_org1
+    networks:
+      - test
+ 
+  ca-org2:
+    image: hyperledger/fabric-ca:latest
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-org2
+      - FABRIC_CA_SERVER_CSR_CN=ca-org2
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=7054
+      - FABRIC_CA_SERVER_DEBUG=true
+      - GODEBUG=netdns=go
+    ports:
+      - 7054:7054
+    command: sh -c 'fabric-ca-server start -d -b ca-org2-admin:ca-org2-adminpw --port 7054'
+    volumes:
+      - ../organizations/fabric-ca/org2:/etc/hyperledger/fabric-ca-server
+    container_name: ca_org2
+    networks:
+      - test
+ 
+  ca-ordererOrg1:
+    image: hyperledger/fabric-ca:latest
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-ordererOrg1
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=7055
+      - FABRIC_CA_SERVER_DEBUG=true
+      - FABRIC_CA_SERVER_CSR_CN=ca-ordererOrg1
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - GODEBUG=netdns=go
+    ports:
+      - 7055:7055
+    command: sh -c 'fabric-ca-server start -d -b ca-ordererorg1-admin:ca-ordererorg1-adminpw --port 7055'
+    volumes:
+      - ../organizations/fabric-ca/ordererOrg1:/etc/hyperledger/fabric-ca-server
+    container_name: ca_ordererOrg1
+    networks:
+      - test
+ 
+  tls-ca-node1:
+    container_name: tls-ca-node1
+    image: hyperledger/fabric-ca
+    command: sh -c 'fabric-ca-server start -d -b tls-ca1-admin:tls-ca1-adminpw --port 7052'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CA_NAME=tls-ca-node1
+      - FABRIC_CA_SERVER_CSR_CN=tls-ca-node1
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - FABRIC_CA_SERVER_PORT=7052
+      - GODEBUG=netdns=go
+    volumes:
+      - ../organizations/fabric-ca/tls-ca-node1:/etc/hyperledger/fabric-ca-server
+    networks:
+      - test
+    ports:
+    - 7052:7052

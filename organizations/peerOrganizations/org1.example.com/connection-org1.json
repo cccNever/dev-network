@@ -1,0 +1,50 @@
+{
+    "name": "test-network-org1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer1.org1.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org1.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer1.org1.example.com": {
+            "url": "grpcs://peer1.org1.example.com:7153",
+            "tlsCACerts": {
+                "path": "/etc/hyperledger/fabric/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org1.example.com",
+                "hostnameOverride": "peer1.org1.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org1.example.com": {
+            "url": "https://ca-org1:7053",
+            "caName": "ca-org1",
+            "tlsCACerts": {
+                "path": ["/etc/hyperledger/fabric/fabric-ca/org1/ca-cert.pem"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
+

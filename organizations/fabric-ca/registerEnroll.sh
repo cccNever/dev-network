@@ -317,10 +317,10 @@ function createOrderer() {
   cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/users/admin1.ordererOrg1.example.com/msp/signcerts/cert.pem" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/ordererOrg1-admin-cert.pem"
   ##构建组织的通道msp
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts/"
+  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts/"
 
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts"
-  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts/"
+  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts/"
 
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts"
   cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts/"

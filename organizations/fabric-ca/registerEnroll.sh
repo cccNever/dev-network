@@ -78,7 +78,7 @@ function createOrg1() {
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
-  mv "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/keystore/*_sk" "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/keystore/key.pem"
+  mv "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/keystore/"*.sk "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/keystore/key.pem"
 
   infoln "Generating the user1.org1.example.com msp"
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/peerOrganizations/org1.example.com/users/user1.org1.example.com
@@ -104,13 +104,13 @@ function createOrg1() {
 
   ##构建组织的通道msp
   mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts/*" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts/"
+  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts/"
 
   mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/cacerts/*" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts/"
+  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/cacerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts/"
 
   mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/admincerts/*" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts/"
+  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/admincerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts/"
 
   
 }
@@ -193,7 +193,7 @@ function createOrg2() {
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
-  mv "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/keystore/*_sk" "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/keystore/key.pem"
+  mv "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/keystore/"*.sk "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/keystore/key.pem"
 
   infoln "Generating the user1.org2.example.com msp"
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/peerOrganizations/org2.example.com/users/user1.org2.example.com
@@ -219,13 +219,13 @@ function createOrg2() {
 
   ##构建组织的通道msp
   mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/tlscacerts/*" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts/"
+  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts/"
 
   mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/cacerts/*" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts/"
+  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/cacerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts/"
 
   mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/admincerts/*" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts/"
+  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/admincerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts/"
 
 }
 
@@ -302,7 +302,7 @@ function createOrderer() {
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
-  mv "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/keystore/*_sk" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/keystore/key.pem"
+  mv "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/keystore/"*.sk "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/keystore/key.pem"
 
   infoln "Generating the admin1.ordererOrg1.example.com msp"
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/users/admin1.ordererOrg1.example.com
@@ -317,11 +317,11 @@ function createOrderer() {
   cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/users/admin1.ordererOrg1.example.com/msp/signcerts/cert.pem" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/ordererOrg1-admin-cert.pem"
   ##构建组织的通道msp
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/*" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts/"
+  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts/"
 
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts"
-  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts/*" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts/"
+  cp "${PWD}/organizations/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts/"
 
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts"
-  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/*" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts/"
+  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts/"
 }

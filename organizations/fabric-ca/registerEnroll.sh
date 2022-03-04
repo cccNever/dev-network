@@ -298,7 +298,7 @@ function createOrderer() {
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/
 
   set -x
-  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp" --enrollment.profile tls --csr.hosts orderer1.ordererOrg1.example.com  --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg1/ca-cert.pem" 
+  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp" --enrollment.profile tls --csr.hosts orderer1.ordererOrg1.example.com  --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem"
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用

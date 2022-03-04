@@ -244,6 +244,7 @@ function networkUp() {
   docker volume create orderer1.ordererOrg1.example.com
   docker volume create peer1.org1.example.com
   docker volume create peer1.org2.example.com
+  docker network create dev
   DOCKER_SOCK="${DOCKER_SOCK}" docker-compose ${COMPOSE_FILES} up -d 2>&1
 
   docker ps -a

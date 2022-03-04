@@ -75,7 +75,7 @@ function createOrg3() {
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
-  mv "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/keystore/"*.sk "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/keystore/key.pem"
+  mv "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/keystore/"*_sk "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/keystore/key.pem"
 
   infoln "Generating the user1.org3.example.com msp"
   export FABRIC_CA_CLIENT_HOME=${PWD}/../organizations/peerOrganizations/org3.example.com/users/user1.org3.example.com

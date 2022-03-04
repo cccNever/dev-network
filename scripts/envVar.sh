@@ -11,12 +11,12 @@
 . scripts/utils.sh
 
 export CORE_PEER_TLS_ENABLED=true
-export ORDERER_CA=${PWD}/organizations/orderOrganizations/orderOrg1.example.com/orders/order1.orderOrg1.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem
 export PEER1_ORG1_CA=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem
 export PEER1_ORG2_CA=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem
 export PEER1_ORG3_CA=${PWD}/organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/tlscacerts/tls-0-0-0-0-7052-tls-ca-node1.pem
-export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/orderOrganizations/orderOrg1.example.com/orders/order1.orderOrg1.example.com/tls-msp/signcerts/cert.pem
-export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/orderOrganizations/orderOrg1.example.com/orders/order1.orderOrg1.example.com/tls-msp/keystore/key.pem
+export ORDERER_ADMIN_TLS_SIGN_CERT=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/signcerts/cert.pem
+export ORDERER_ADMIN_TLS_PRIVATE_KEY=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/keystore/key.pem
 
 # Set environment variables for the peer org
 setGlobals() {

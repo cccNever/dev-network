@@ -1,4 +1,4 @@
-#!/bin/bash
+  #!/bin/bash
 
 function createOrg1() {
   infoln "Enrolling the CA admin"
@@ -9,7 +9,7 @@ function createOrg1() {
   set -x
   fabric-ca-client enroll -u https://ca-org1-admin:ca-org1-adminpw@0.0.0.0:7053 --caname ca-org1 --tls.certfiles "${PWD}/organizations/fabric-ca/org1/ca-cert.pem" #注册组织，为组织生成一个可信证书文件列表
   { set +x; } 2>/dev/null
-  if [ ! -d "organizations/peerOrganizations/org1.example.com/msp/" ]; then
+  if [ ! -d "organizations/peerOrganizations/org1.example.com/msp" ]; then
     mkdir -p organizations/peerOrganizations/org1.example.com/msp/
   fi
 
@@ -54,7 +54,7 @@ function createOrg1() {
   ################登录tls-ca管理员账号，为org1的peer1、org2的peer1、orderorg的order1注册账号#########################
   infoln "Enrolling the TLS-CA admin"
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/fabric-ca/tls-ca-node1/admin
-  if [ ! -d "fabric-ca/tls-ca-node1/admin/" ]; then
+  if [ ! -d "fabric-ca/tls-ca-node1/admin" ]; then
     mkdir -p /organizations/fabric-ca/tls-ca-node1/admin/
     set -x
     fabric-ca-client enroll -u https://tls-ca1-admin:tls-ca1-adminpw@0.0.0.0:7052 --caname tls-ca-node1 --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" #登录TLS-CA admin
@@ -124,7 +124,7 @@ function createOrg2() {
   set -x
   fabric-ca-client enroll -u https://ca-org2-admin:ca-org2-adminpw@0.0.0.0:7054 --caname ca-org2 --tls.certfiles "${PWD}/organizations/fabric-ca/org2/ca-cert.pem" #注册组织，为组织生成一个可信证书文件列表
   { set +x; } 2>/dev/null
-  if [ ! -d "organizations/peerOrganizations/org2.example.com/msp/" ]; then
+  if [ ! -d "organizations/peerOrganizations/org2.example.com/msp" ]; then
     mkdir -p organizations/peerOrganizations/org2.example.com/msp/
   fi
   echo 'NodeOUs:
@@ -170,8 +170,8 @@ function createOrg2() {
 
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/fabric-ca/tls-ca-node1/admin
 
-  if [ ! -d "fabric-ca/tls-ca-node1/admin/" ]; then
-    mkdir -p /organizations/fabric-ca/tls-ca-node1/admin/
+  if [ ! -d "fabric-ca/tls-ca-node1/admin" ]; then
+    mkdir -p /organizations/fabric-ca/tls-ca-node1/admin
     set -x
     fabric-ca-client enroll -u https://tls-ca1-admin:tls-ca1-adminpw@0.0.0.0:7052 --caname tls-ca-node1 --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" #登录TLS-CA admin
     { set +x; } 2>/dev/null
@@ -231,15 +231,15 @@ function createOrg2() {
 
 function createOrderer() {
   infoln "Enrolling the CA admin"
-  mkdir -p /organizations/fabric-ca/orderOrg1/admin/
+  mkdir -p /organizations/fabric-ca/orderOrg1/admin
 
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/fabric-ca/ordererOrg1/admin
 
   set -x
   fabric-ca-client enroll -u https://ca-ordererorg1-admin:ca-ordererorg1-adminpw@0.0.0.0:7055 --caname ca-ordererOrg1 --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg1/ca-cert.pem" #注册组织，为组织生成一个可信证书文件列表
   { set +x; } 2>/dev/null
-  if [ ! -d "organizations/ordererOrganizations/ordererOrg1.example.com/msp/" ]; then
-    mkdir -p organizations/ordererOrganizations/ordererOrg1.example.com/msp/
+  if [ ! -d "organizations/ordererOrganizations/ordererOrg1.example.com/msp" ]; then
+    mkdir -p organizations/ordererOrganizations/ordererOrg1.example.com/msp
   fi
   echo 'NodeOUs:
   Enable: true
@@ -279,7 +279,7 @@ function createOrderer() {
 
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/fabric-ca/tls-ca-node1/admin
 
-  if [ ! -d "fabric-ca/tls-ca-node1/admin/" ]; then
+  if [ ! -d "fabric-ca/tls-ca-node1/admin" ]; then
     mkdir -p /organizations/fabric-ca/tls-ca-node1/admin/
     set -x
     fabric-ca-client enroll -u https://tls-ca1-admin:tls-ca1-adminpw@0.0.0.0:7052 --caname tls-ca-node1 --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" #登录TLS-CA admin

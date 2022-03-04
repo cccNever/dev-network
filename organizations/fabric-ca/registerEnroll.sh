@@ -269,7 +269,7 @@ function createOrderer() {
   infoln "Generating the orderer1.ordererOrg1.example.com msp"
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com
   set -x
-  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7055 --caname ca-ordererOrg1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp" --csr.hosts orderer1.ordererOrg1.example.com --tls.certfiles "${PWD}/organizations/ordererOrg1/ca-cert.pem" #为peer1生成msp
+  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7055 --caname ca-ordererOrg1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp" --csr.hosts orderer1.ordererOrg1.example.com --tls.certfiles "${PWD}/organizations/fabric-ca/ordererOrg1/ca-cert.pem" #为peer1生成msp
   { set +x; } 2>/dev/null
 
   cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/config.yaml" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/config.yaml" #这个注意一下

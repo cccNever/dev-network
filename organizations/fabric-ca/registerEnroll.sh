@@ -103,14 +103,14 @@ function createOrg1() {
   cp "${PWD}/organizations/peerOrganizations/org1.example.com/users/admin1.org1.example.com/msp/signcerts/cert.pem" "${PWD}/organizations/peerOrganizations/org1.example.com/users/user1.org1.example.com/msp/admincerts/org1-admin-cert.pem"
 
   ##构建组织的通道msp
-  mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/tlscacerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp/tlscacerts" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/cacerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/cacerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/cacerts" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts"
-  cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/admincerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org1.example.com/msp/admincerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/admincerts" "${PWD}/organizations/peerOrganizations/org1.example.com/msp/"
 
   
 }
@@ -218,14 +218,14 @@ function createOrg2() {
   cp "${PWD}/organizations/peerOrganizations/org2.example.com/users/admin1.org2.example.com/msp/signcerts/cert.pem" "${PWD}/organizations/peerOrganizations/org2.example.com/users/user1.org2.example.com/msp/admincerts/org2-admin-cert.pem"
 
   ##构建组织的通道msp
-  mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/tlscacerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp/tlscacerts" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/cacerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/cacerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/cacerts" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts"
-  cp "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/admincerts/"* "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts/"
+  #mkdir -p "${PWD}/organizations/peerOrganizations/org2.example.com/msp/admincerts"
+  cp -r "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/admincerts" "${PWD}/organizations/peerOrganizations/org2.example.com/msp/"
 
 }
 
@@ -316,12 +316,12 @@ function createOrderer() {
   mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts"
   cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/users/admin1.ordererOrg1.example.com/msp/signcerts/cert.pem" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/ordererOrg1-admin-cert.pem"
   ##构建组织的通道msp
-  mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts"
-  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts/"
+ # mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/tlscacerts"
+  cp -r "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/tlscacerts" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts"
-  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts/"
+  #mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/cacerts"
+  cp -r "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/cacerts" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/"
 
-  mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts"
-  cp "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts/"* "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts/"
+  #mkdir -p "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/admincerts"
+  cp -r "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/msp/admincerts" "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/msp/"
 }

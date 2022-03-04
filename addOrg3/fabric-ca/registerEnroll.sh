@@ -100,14 +100,14 @@ function createOrg3() {
   cp "${PWD}/../organizations/peerOrganizations/org3.example.com/users/admin1.org3.example.com/msp/signcerts/cert.pem" "${PWD}/../organizations/peerOrganizations/org3.example.com/users/user1.org3.example.com/msp/admincerts/org3-admin-cert.pem"
 
   ##构建组织的通道msp
-  mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/tlscacerts"
-  cp "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/tlscacerts/"* "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/tlscacerts/"
+  #mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/tlscacerts"
+  cp -r "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls-msp/tlscacerts" "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/"
 
-  mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/cacerts"
-  cp "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/cacerts/"* "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/cacerts/"
+  #mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/cacerts"
+  cp -r "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/cacerts" "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/"
 
-  mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/admincerts"
-  cp "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/admincerts/"* "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/admincerts/"
+  #mkdir -p "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/admincerts"
+  cp -r "${PWD}/../organizations/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/admincerts" "${PWD}/../organizations/peerOrganizations/org3.example.com/msp/"
 
   
 }

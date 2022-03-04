@@ -170,7 +170,7 @@ function createOrgs(){
   # Create crypto material using Fabric CA
   if [ "$CRYPTO" == "Certificate Authorities" ]; then
     infoln "Generating certificates using Fabric CA"
-
+    docker network create dev
     docker-compose -f $COMPOSE_FILE_CA up -d 2>&1
 
     . organizations/fabric-ca/registerEnroll.sh
@@ -244,7 +244,7 @@ function networkUp() {
   docker volume create orderer1.ordererOrg1.example.com
   docker volume create peer1.org1.example.com
   docker volume create peer1.org2.example.com
-  docker network create dev
+  
   DOCKER_SOCK="${DOCKER_SOCK}" docker-compose ${COMPOSE_FILES} up -d 2>&1
 
   docker ps -a

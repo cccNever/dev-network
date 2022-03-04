@@ -19,14 +19,14 @@ Organizations:
     - &OrdererOrg
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: OrderOrg1MSP
+        Name: OrdererOrg1MSP
 
         # ID to load the MSP definition as
-        ID: OrderOrg1MSP
+        ID: OrdererOrg1MSP
 
         # MSPDir is the filesystem path which contains the MSP configuration
         # up is ordererOrg1, down is
-        MSPDir: ../organizations/orderOrganizations/orderOrg1.example.com/msp
+        MSPDir: ../organizations/ordererOrganizations/ordererOrg1.example.com/msp
                 
         # Policies defines the set of policies at this level of the config tree
         # For organization policies, their canonical path is usually
@@ -34,16 +34,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('OrderOrg1MSP.member')"
+                Rule: "OR('OrdererOrg1MSP.member')"
             Writers:
                 Type: Signature
-                Rule: "OR('OrderOrg1MSP.member')"
+                Rule: "OR('OrdererOrg1MSP.member')"
             Admins:
                 Type: Signature
-                Rule: "OR('OrderOrg1MSP.admin')"
+                Rule: "OR('OrdererOrg1MSP.admin')"
 
         OrdererEndpoints:
-            - order1.orderOrg1.example.com:7155
+            - orderer1.ordererOrg1.example.com:7155
 
     - &Org1
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -207,14 +207,14 @@ Orderer: &OrdererDefaults
     # as TLS validation.  The preferred way to specify orderer addresses is now
     # to include the OrdererEndpoints item in your org definition
     Addresses:
-        - order1.orderOrg1.example.com:7155
+        - orderer1.ordererOrg1.example.com:7155
 
     EtcdRaft:
         Consenters:
-        - Host: order1.orderOrg1.example.com
+        - Host: orderer1.ordererOrg1.example.com
           Port: 7155
-          ClientTLSCert: ../organizations/orderOrganizations/orderOrg1.example.com/orders/order1.orderOrg1.example.com/tls-msp/signcerts/cert.pem
-          ServerTLSCert: ../organizations/orderOrganizations/orderOrg1.example.com/orders/order1.orderOrg1.example.com/tls-msp/signcerts/cert.pem
+          ClientTLSCert: ../organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/signcerts/cert.pem
+          ServerTLSCert: ../organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp/signcerts/cert.pem
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s

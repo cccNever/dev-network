@@ -79,8 +79,8 @@ FABRIC_CFG_PATH=${PWD}/configtx
 ## Create channel genesis block
 infoln "Generating channel genesis block '${CHANNEL_NAME}.block'"
 createChannelGenesisBlock
-
-FABRIC_CFG_PATH=$PWD/../config/
+#FABRIC_CFG_PATH=$PWD/../config/
+FABRIC_CFG_PATH=$PWD/configtx
 BLOCKFILE="./channel-artifacts/${CHANNEL_NAME}.block"
 
 ## Create channel

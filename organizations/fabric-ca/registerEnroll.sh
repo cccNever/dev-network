@@ -74,7 +74,7 @@ function createOrg1() {
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/
 
   set -x
-  fabric-ca-client enroll -u https://peer1-org1:peerpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp" --enrollment.profile tls --csr.hosts peer1.org1.example.com  --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" 
+  fabric-ca-client enroll -u https://peer1-org1:peerpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls-msp" --enrollment.profile tls --csr.hosts peer1.org1.example.com  --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" 
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
@@ -189,7 +189,7 @@ function createOrg2() {
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/
 
   set -x
-  fabric-ca-client enroll -u https://peer1-org2:peerpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp" --enrollment.profile tls --csr.hosts peer1.org2.example.com  --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" 
+  fabric-ca-client enroll -u https://peer1-org2:peerpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls-msp" --enrollment.profile tls --csr.hosts peer1.org2.example.com --csr.hosts localhost  --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" 
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
@@ -279,7 +279,7 @@ function createOrderer() {
 
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/fabric-ca/tls-ca-node1/admin
 
-  if [ ! -d "fabric-ca/tls-ca-node1/admin" ]; then
+  if [ ! -d "fabric-ca/tls-ca-node1/admin" ]; then  
     mkdir -p /organizations/fabric-ca/tls-ca-node1/admin/
     set -x
     fabric-ca-client enroll -u https://tls-ca1-admin:tls-ca1-adminpw@0.0.0.0:7052 --caname tls-ca-node1 --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem" #登录TLS-CA admin
@@ -298,7 +298,7 @@ function createOrderer() {
   export FABRIC_CA_CLIENT_HOME=${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/
 
   set -x
-  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp" --enrollment.profile tls --csr.hosts orderer1.ordererOrg1.example.com  --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem"
+  fabric-ca-client enroll -u https://orderer1-ordererorg1:ordererpw@0.0.0.0:7052 --caname tls-ca-node1 -M "${PWD}/organizations/ordererOrganizations/ordererOrg1.example.com/orderers/orderer1.ordererOrg1.example.com/tls-msp" --enrollment.profile tls --csr.hosts orderer1.ordererOrg1.example.com  --csr.hosts localhost --tls.certfiles "${PWD}/organizations/fabric-ca/tls-ca-node1/ca-cert.pem"
   { set +x; } 2>/dev/null
 
   ##重命名私钥，之后要用
